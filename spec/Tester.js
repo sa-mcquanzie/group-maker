@@ -22,6 +22,11 @@ class Tester {
       catch { return false }
     };
 
+    this.matchers.ifInArray = (arg1, arg2) => {
+      try { return arg1.includes(arg2) }
+      catch { return false }
+    }; 
+
     Testers.all.push(this);
   }
 
@@ -50,7 +55,9 @@ class Tester {
     let failedTests = document.createElement("div");
     failedTests.setAttribute("class", "test-group failed-tests");
 
-    this.results.passed.forEach((result) => {      
+    this.results.passed.forEach((result) => {
+      let passedDiv = document.createElement("div");
+
       let outcome = document.createElement("span");
       outcome.setAttribute("class", "outcome");
       outcome.innerHTML = "PASSED: "
@@ -59,8 +66,10 @@ class Tester {
       message.setAttribute("class", "message");
       message.innerHTML = result
 
-      passedTests.append(outcome);
-      passedTests.append(message);
+      passedDiv.append(outcome);
+      passedDiv.append(message);
+
+      passedTests.append(passedDiv);
     })
 
     this.results.failed.forEach((result) => {
