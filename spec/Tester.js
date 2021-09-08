@@ -7,9 +7,20 @@ class Tester {
     this.results.passed = [];
     this.results.failed = [];
 
-    this.matchers.equalityOf = (arg1, arg2) => { return arg1 == arg2 };
-    this.matchers.strictEqualityOf = (arg1, arg2) => { return arg1 === arg2 };
-    this.matchers.ifDefined = (arg) => { return arg != undefined };
+    this.matchers.equalityOf = (arg1, arg2) => { 
+      try { return arg1 == arg2 }
+      catch { return false }
+    };
+
+    this.matchers.strictEqualityOf = (arg1, arg2) => {
+      try { return arg1 === arg2 }
+      catch { return false }
+    };
+
+    this.matchers.ifDefined = (arg) => {
+      try { return arg != undefined }
+      catch { return false }
+    };
 
     Testers.all.push(this);
   }
