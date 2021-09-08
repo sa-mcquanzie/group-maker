@@ -25,7 +25,12 @@ class Tester {
     this.matchers.ifInArray = (arg1, arg2) => {
       try { return arg1.includes(arg2) }
       catch { return false }
-    }; 
+    };
+
+    this.matchers.arrayIsLength = (arg1, arg2) => {
+      try { return arg2.length == arg1 }
+      catch { return false }
+    };
 
     Testers.all.push(this);
   }
@@ -94,6 +99,16 @@ class Tester {
     tester.appendChild(failedTests);
 
     document.querySelector("body").appendChild(tester);
+  }
+}
+
+class Double {
+  constructor() {
+
+  }
+
+  does(action, returnValue) {
+    this[action] = returnValue; 
   }
 }
 
