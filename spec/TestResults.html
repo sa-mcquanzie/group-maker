@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Test Output</title>
+    <link rel="stylesheet" href="teststyle.css">
+    
+    <script src="Tester.js"></script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        Testers.all.forEach((tester) => {
+          tester.showResults();
+        })
+      });
+    </script>
+
+
+    <!-- include source files here... -->
+    <script src="../lib/MemberList.js"></script>
+    <script src="../lib/Member.js"></script>
+    <script src="../lib/Group.js"></script>
+
+    <!-- include spec files here... -->
+    <script src="MemberListTests.js"></script>
+    <script src="GroupTests.js"></script>
+    <script src="FailingTests.js"></script>
+    <script src="MixedTests.js"></script> 
+  </head>
+  <body>
+  </body>
+</html>
