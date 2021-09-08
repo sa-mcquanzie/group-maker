@@ -107,8 +107,16 @@ class Double {
 
   }
 
-  does(action, returnValue) {
-    this[action] = returnValue; 
+  does() {
+    let argArray = Array.prototype.slice.call(arguments);
+
+    if (argArray.length == 2 && (typeof argArray[0] == "string")) {
+      this[argArray[0]] = argArray[1];
+    } else {
+      argArray.forEach((arg) => {
+        this[arg[0]] = arg[1];
+      })
+    }
   }
 }
 

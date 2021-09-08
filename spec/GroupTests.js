@@ -1,11 +1,11 @@
-groupTester = new Tester("Group class");
-group = new Group;
+const groupTester = new Tester("Group class");
+let group = new Group;
 
 member1 = new Double;
 member1.does("name", "McQuanzie");
 
 member2 = new Double;
-member2.does("name", "Eggbert");
+member2.does(["name", "Eggbert"], ["conflicts", [member1]]); // conflicts is empty though. Why?
 
 group.add(member1);
 group.add(member2);
